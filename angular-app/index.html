@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barometric Pressure Data</title>
+</head>
+<body>
+  <h1>Barometric Pressure Data</h1>
+  <ul id="barometricPressureList">
+     barometric_pressure_data.each_with_index do |pressure, index| 
+      <li> "#{index + 1}. #{pressure}" </li>
+     end
+  </ul>
+  <div id="errorContainer" style="color: red;">
+     if error %
+       "Error: #{error}" %
+     end
+  </div>
+  <script>
+    // JavaScript to fetch data from the Ruby script and update the list
+    fetch('/barometric_pressure_data')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const pressureList = document.getElementById('barometricPressureList');
+        data.forEach((pressure, index) => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${index + 1}. ${pressure}`;
+          pressureList.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        const errorContainer = document.getElementById('errorContainer');
+        errorContainer.textContent = `Error: ${error.message}`;
+      });
+  </script>
+</body>
+</html>
