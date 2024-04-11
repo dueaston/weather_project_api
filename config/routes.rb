@@ -8,6 +8,8 @@ end
     resources :profile_s
   end
 
+  
+
   # Route for Angular app
-  get '/angular-app', to: 'angular#app'
-end
+  #get '/angular-app', to: 'angular#app'
+#end
