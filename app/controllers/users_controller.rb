@@ -26,4 +26,13 @@ end
       render json: {error: "Unable to update user."}
     end
   end
+
+def destroy
+  @user = user.find(params[:id])
+  if @user.destroy
+    render json: {message: "Successfully deleted user."}
+  else
+    render json: {error: "Unable to delete user."}
+  end
+  end
 end
