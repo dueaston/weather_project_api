@@ -1,6 +1,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  resources :users, only: [:create] 
+  resources :users, only: [:create, :index] 
 end
 
   #Route for Profiles
