@@ -10,7 +10,7 @@ def show
 end
 
   def create
-    @user = user.new(name: params[:name], email: params[:email])
+    @user = User.new(name: params[:name], email: params[:email])
     if @user.save
       render json:@user
     else

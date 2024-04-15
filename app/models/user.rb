@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+  has_secure_password
+  validates :username, presence: true
   attr_accessor :id, :name, :email
+  
   
   def initialize(id, name, email)
     @id = id
