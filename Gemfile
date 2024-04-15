@@ -9,5 +9,6 @@ group :development, :test do
   gem 'bcrypt'
   gem 'bootsnap', require: false
   gem 'jwt'
+  gem 'blueprinter'
 end
 
