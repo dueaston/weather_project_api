@@ -8,5 +8,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'bcrypt'
   gem 'bootsnap', require: false
+  gem 'jwt'
 end
 
