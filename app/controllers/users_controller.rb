@@ -20,7 +20,7 @@ end
 
   def update
     @user = user.find(params[:id])
-    if @user.update(name: params[:name], email: params[:ewmail])
+    if @user.update(name: params[:name], email: params[:email])
       render json: @user
     else
       render json: {error: "Unable to update user."}
