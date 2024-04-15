@@ -45,4 +45,3 @@ class UserDatabase
     @users.values
   end
 end
-end

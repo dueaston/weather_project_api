@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
+  before_action :authenticate_request, except: [:create]
+
   def index
     @users = user.all 
     render json: @users
   end
   
 def show
-  @user = user.find(params[:id])
-  render json: @user
+  @user = User.find_by(id: params[:id])
+  render json: @user, status: :ok
 end
 
   def create
